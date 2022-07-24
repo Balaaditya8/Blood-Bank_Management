@@ -21,13 +21,7 @@ app.config['MYSQL_CURSORCLASS']='DictCursor'
 #init MySQL
 #mail= Mail(app)
 
-#app.config['MAIL_SERVER']='smtp.gmail.com'
-#app.config['MAIL_PORT'] = 465
-#app.config['MAIL_USERNAME'] = 'xyz@gmail.com'
-#app.config['MAIL_PASSWORD'] = '*******'
-#app.config['MAIL_USE_TLS'] = False
-#app.config['MAIL_USE_SSL'] = True
-#mail = Mail(app)
+
 mysql =  MySQL(app)
 
 
@@ -327,10 +321,7 @@ def accept():
         cur.execute("UPDATE BLOODBANK SET TOTAL_PACKETS = TOTAL_PACKETS-%s WHERE B_GROUP = %s",(pack,req))
         cur.execute("DELETE FROM CONTACT WHERE CONTACT_ID = %s",[c_id])
         mysql.connection.commit()
-        #msg = Message('Hello', sender = 'xyz@gmail.com', recipients = ['abcd8@gmail.com'])
-        #msg.body = "Hello Flask message sent from Flask-Mail"
-        #mail.send(msg)
-        #return "Sent"
+       
     else:
         print(req)
         
